@@ -1,0 +1,450 @@
+﻿@model Rehabilitation.Models.Trace
+
+@{
+    ViewBag.Title = "Chi tiết";
+}
+<link href="~/css/form.css" rel="stylesheet" />
+
+<h2>Chi tiết</h2>
+
+<div>
+    <h4>Kết quả luyện tập</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Exercise)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Exercise)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Time)
+        </dd>
+
+        <dt>
+            Bệnh nhân
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Patient.Name)
+        </dd>
+
+    </dl>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+
+        </th>
+        <th>
+            Trước buổi tập
+        </th>
+        <th>
+            Sau buổi tập
+        </th>
+        <th>
+            Thay đổi
+        </th>
+    </tr>
+
+    <tr>
+        <td>
+            <b>Tự chăm sóc</b>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            A. Ăn
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Eating_B)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Eating_A)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.EatingDifference)
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            B. Vệ sinh đầu, mặt
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Grooming_B)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Grooming_A)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.GroomingDifference)
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            C. Tắm
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Bathing_B)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Bathing_A)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.BathingDifference)
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            D. Mặc áo
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.DressingUpperBody_B)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.DressingUpperBody_A)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.DressingUpperBodyDifference)
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            E. Mặc quần
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.DressingLowerBody_B)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.DressingLowerBody_A)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.DressingLowerBodyDifference)
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            F. Đi vệ sinh
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Toileting_B)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Toileting_A)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.ToiletingDifference)
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <b>Kiểm soát cơ tròn</b>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            G. Kiểm soát bàng quang
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.BladderManagement_B)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.BladderManagement_A)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.BladderManagementDifference)
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            H. Kiểm soát đường ruột
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.BowelManagement_B)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.BowelManagement_A)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.BowelManagementDifference)
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <b>Dịch chuyển</b>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            I. Dịch chuyển: giường sang ghế, xe lăn
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.TransferBedChairWheelchair_B)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.TransferBedChairWheelchair_A)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.TransferBedChairWheelchairDifference)
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            J. Dịch chuyển: Ở phòng vệ sinh
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.TransferToilet_B)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.TransferToilet_A)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.TransferToiletDifference)
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            K. Dịch chuyển: bồn tắm/ buồng tắm vòi sen
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.TransferTubShower_B)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.TransferTubShower_A)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.TransferTubShowerDifference)
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <b>Di chuyển, đi lại</b>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            L. Đi/ Di chuyển bằng xe lăn
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.WalkOrWheelchair_B)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.WalkOrWeelchair_A)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.WalkOrWheelchairDifference)
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            M. Lên xuống cầu thang
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Stairs_B)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Stairs_A)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.StairsDifference)
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <b><i>Điểm tiểu mục Vận động, di chuyển</i></b>
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.MotorDomain_B)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.MotorDomain_A)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.MotorDomainDifference)
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <b>Giao tiếp</b>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            N. Hiểu
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Compreshension_B)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Compreshension_A)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.CompreshensionDifference)
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            O. Diễn đạt
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Expression_B)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Expression_A)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.ExpressionDifference)
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <b>Nhận thức xã hội</b>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+        <td>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            P. Tương tác xã hội
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.SocialInteraction_B)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.SocialInteraction_A)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.SocialInteractionDifference)
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            Q. Giải quyết vấn đề
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.ProblemSolving_B)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.ProblemSolving_A)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.ProblemSolvingDifference)
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            R. Trí nhớ
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Memory_B)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Memory_A)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.MemoryDifference)
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <b><i>Điểm tiểu mục Nhận thức</i></b>
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.CognitiveDomain_B)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.CognitiveDomain_A)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.CognitiveDomainDifference)
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <b><i>TỔNG ĐIỂM FIM</i></b>
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Total_B)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Total_A)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.TotalDifference)
+        </td>
+    </tr>
+
+</table>
+
+
+<p>
+    @Html.ActionLink("Sửa", "Edit", new { id = Model.TraceId }) |
+    @Html.ActionLink("Trở lại danh sách", "Index")
+</p>

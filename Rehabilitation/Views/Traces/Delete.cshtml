@@ -1,0 +1,64 @@
+﻿@model Rehabilitation.Models.Trace
+
+@{
+    ViewBag.Title = "Xóa";
+}
+
+    <h2>Xóa</h2>
+
+<h3>Bạn có chắc chắn muốn xóa bản ghi kết quả luyện tập này không?</h3>
+<div>
+    <h4>Kết quả luyện tập</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Bệnh nhân
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Patient.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Exercise)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Exercise)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Time)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Total_B)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Total_B)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Total_A)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Total_A)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Xóa" class="btn btn-default" /> |
+            @Html.ActionLink("Trở lại danh sách", "Index")
+        </div>
+    }
+</div>

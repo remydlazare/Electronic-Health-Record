@@ -1,0 +1,421 @@
+﻿@model IEnumerable<Rehabilitation.Models.Trace>
+
+@{
+    ViewBag.Title = "Lịch sử luyện tập";
+}
+
+<h2>Lịch sử luyện tập</h2>
+
+@foreach (var item in Model)
+{
+<fieldset class="scheduler-border">
+    <legend class="scheduler-border">@Html.DisplayFor(modelItem => item.Time)</legend>
+    <dl class="dl-horizontal">
+        <dt>@Html.DisplayNameFor(modelItem => modelItem.Exercise):</dt>
+        <dd>@Html.DisplayFor(modelItem => item.Exercise)</dd>
+    </dl>
+        <table class="table">
+            <tr>
+                <th>
+
+                </th>
+                <th>
+                    Trước buổi tập
+                </th>
+                <th>
+                    Sau buổi tập
+                </th>
+                <th>
+                    Thay đổi
+                </th>
+            </tr>
+
+            <tr>
+                <td>
+                    <b>Tự chăm sóc</b>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    A. Ăn
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Eating_B)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Eating_A)
+                </td>
+                <td>
+                    @(item.Eating_B.HasValue? (item.Eating_A - item.Eating_B).Value.ToString("+#;-#;0") : "")
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    B. Vệ sinh đầu, mặt
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Grooming_B)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Grooming_A)
+                </td>
+                <td>
+                    @(item.Grooming_B.HasValue? (item.Grooming_A - item.Grooming_B).Value.ToString("+#;-#;0") : "")
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    C. Tắm
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Bathing_B)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Bathing_A)
+                </td>
+                <td>
+                    @(item.Bathing_B.HasValue? (item.Bathing_A - item.Bathing_B).Value.ToString("+#;-#;0") : "")
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    D. Mặc áo
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DressingUpperBody_B)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DressingUpperBody_A)
+                </td>
+                <td>
+                    @(item.DressingUpperBody_B.HasValue? (item.DressingUpperBody_A - item.DressingUpperBody_B).Value.ToString("+#;-#;0") : "")
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    E. Mặc quần
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DressingLowerBody_B)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DressingLowerBody_A)
+                </td>
+                <td>
+                    @(item.DressingLowerBody_B.HasValue? (item.DressingLowerBody_A - item.DressingLowerBody_B).Value.ToString("+#;-#;0") : "")
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    F. Đi vệ sinh
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Toileting_B)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Toileting_A)
+                </td>
+                <td>
+                    @(item.Toileting_B.HasValue? (item.Toileting_A - item.Toileting_B).Value.ToString("+#;-#;0") : "")
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <b>Kiểm soát cơ tròn</b>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    G. Kiểm soát bàng quang
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BladderManagement_B)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BladderManagement_A)
+                </td>
+                <td>
+                    @(item.BladderManagement_B.HasValue? (item.BladderManagement_A - item.BladderManagement_B).Value.ToString("+#;-#;0") : "")
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    H. Kiểm soát đường ruột
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BowelManagement_B)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BowelManagement_A)
+                </td>
+                <td>
+                    @(item.BowelManagement_B.HasValue? (item.BowelManagement_A - item.BowelManagement_B).Value.ToString("+#;-#;0") : "")
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <b>Dịch chuyển</b>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    I. Dịch chuyển: giường sang ghế, xe lăn
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TransferBedChairWheelchair_B)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TransferBedChairWheelchair_A)
+                </td>
+                <td>
+                    @(item.TransferBedChairWheelchair_B.HasValue? (item.TransferBedChairWheelchair_A - item.TransferBedChairWheelchair_B).Value.ToString("+#;-#;0") : "")
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    J. Dịch chuyển: Ở phòng vệ sinh
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TransferToilet_B)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TransferToilet_A)
+                </td>
+                <td>
+                    @(item.TransferToilet_B.HasValue? (item.TransferToilet_A - item.TransferToilet_B).Value.ToString("+#;-#;0") : "")
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    K. Dịch chuyển: bồn tắm/ buồng tắm vòi sen
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TransferTubShower_B)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TransferTubShower_A)
+                </td>
+                <td>
+                    @(item.TransferTubShower_B.HasValue? (item.TransferTubShower_A - item.TransferTubShower_B).Value.ToString("+#;-#;0") : "")
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <b>Di chuyển, đi lại</b>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    L. Đi/ Di chuyển bằng xe lăn
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WalkOrWheelchair_B)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WalkOrWeelchair_A)
+                </td>
+                <td>
+                    @(item.WalkOrWheelchair_B.HasValue? (item.WalkOrWeelchair_A - item.WalkOrWheelchair_B).Value.ToString("+#;-#;0") : "")
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    M. Lên xuống cầu thang
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Stairs_B)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Stairs_A)
+                </td>
+                <td>
+                    @(item.Stairs_B.HasValue? (item.Stairs_A - item.Stairs_B).Value.ToString("+#;-#;0") : "")
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <b><i>Điểm tiểu mục Vận động, di chuyển</i></b>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MotorDomain_B)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MotorDomain_A)
+                </td>
+                <td>
+                    @(item.MotorDomain_B.HasValue? (item.MotorDomain_A - item.MotorDomain_B).Value.ToString("+#;-#;0") : "")
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <b>Giao tiếp</b>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    N. Hiểu
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Compreshension_B)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Compreshension_A)
+                </td>
+                <td>
+                    @(item.Compreshension_B.HasValue? (item.Compreshension_A - item.Compreshension_B).Value.ToString("+#;-#;0") : "")
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    O. Diễn đạt
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Expression_B)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Expression_A)
+                </td>
+                <td>
+                    @(item.Expression_B.HasValue? (item.Expression_A - item.Expression_B).Value.ToString("+#;-#;0") : "")
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <b>Nhận thức xã hội</b>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    P. Tương tác xã hội
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SocialInteraction_B)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SocialInteraction_A)
+                </td>
+                <td>
+                    @(item.SocialInteraction_B.HasValue? (item.SocialInteraction_A - item.SocialInteraction_B).Value.ToString("+#;-#;0") : "")
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    Q. Giải quyết vấn đề
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProblemSolving_B)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProblemSolving_A)
+                </td>
+                <td>
+                    @(item.ProblemSolving_B.HasValue? (item.ProblemSolving_A - item.ProblemSolving_B).Value.ToString("+#;-#;0") : "")
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    R. Trí nhớ
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Memory_B)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Memory_A)
+                </td>
+                <td>
+                    @(item.Memory_B.HasValue? (item.Memory_A - item.Memory_B).Value.ToString("+#;-#;0") : "")
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <b><i>Điểm tiểu mục Nhận thức</i></b>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CognitiveDomain_B)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CognitiveDomain_A)
+                </td>
+                <td>
+                    @(item.CognitiveDomain_B.HasValue? (item.CognitiveDomain_A - item.CognitiveDomain_B).Value.ToString("+#;-#;0") : "")
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <b><i>TỔNG ĐIỂM FIM</i></b>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Total_B)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Total_A)
+                </td>
+                <td>
+                    @(item.Total_B.HasValue? (item.Total_A - item.Total_B).Value.ToString("+#;-#;0") : "")
+                </td>
+            </tr>
+
+        </table>
+</fieldset>}

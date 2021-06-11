@@ -1,0 +1,28 @@
+﻿@model Rehabilitation.Models.Account
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/css/login.css" rel="stylesheet" />
+</head>
+<body>
+    @using (Html.BeginForm("Sign_In", "Authorize"))
+    {
+    <div class="login-page">
+        <div class="form">
+            @Html.TextBoxFor(model => model.Username, new { placeholder = "Tên đăng nhập" })
+            @Html.PasswordFor(model => model.Password, new { placeholder = "Mật khẩu" })
+            <input type="submit" value="đăng nhập" />
+            <label>@ViewBag.Text</label>
+        </div>
+    </div>
+    }
+</body>
+</html>

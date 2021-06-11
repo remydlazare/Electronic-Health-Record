@@ -1,0 +1,78 @@
+﻿@{
+    ViewBag.Title = "Trang chủ";
+}
+
+<div class="jumbotron">
+    <h1>Xin chào!</h1>
+    <p>
+        Ứng dụng quản lý bệnh án và theo dõi quá trình luyện tập cho bệnh nhân phục hồi chức năng sau đột quỵ não.
+    </p>
+    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+
+<div class="row">
+    @if (Session["role"].ToString() == "Patient")
+    {
+        <div class="col-md-4">
+            <h2>Bệnh án cá nhân</h2>
+            <p>
+                Xem thông tin bệnh án cá nhân, thông tin cá nhân, đánh giá mức độ thực hiện chức năng độc lộc (FIM), lịch sử luyện tập...
+            </p>
+            <p><a class="btn btn-default" href="~/Patients/Details/@Session["username"].ToString()">Xem bệnh án &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Danh sách bác sĩ</h2>
+            <p>Xem danh sách các y bác sĩ đang công tác tại bệnh viện, tiểu sử, thông tin liên lạc của từng bác sĩ.</p>
+            <p><a class="btn btn-default" href="~/Doctors">Xem danh sách bác sĩ &raquo;</a></p>
+        </div>
+    }
+
+    @if (Session["role"].ToString() == "Doctor")
+    {
+        <div class="col-md-4">
+            <h2>Danh sách bệnh án</h2>
+            <p>
+                Xem toàn bộ danh sách bệnh án, tìm kiếm, chỉnh sửa bệnh án, thêm nội dung, kết quả luyện tập, xem chi tiết thông tin
+                bệnh án, lịch sử luyện tập, hồi phục...
+            </p>
+            <p><a class="btn btn-default" href="~/Patients">Danh sách bệnh án &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Bệnh án mới</h2>
+            <p>Khởi tạo một bản ghi bệnh án mới trong hệ thống cơ sở dữ liệu, điền các thông tin cá nhân theo biểu mẫu yêu cầu.</p>
+            <p><a class="btn btn-default" href="~/Patients/Create">Bệnh án mới &raquo;</a></p>
+        </div>
+    }
+
+    @if (Session["role"].ToString() == "Admin")
+    {
+        <div class="col-md-4">
+            <h2>Bệnh án</h2>
+            <p>
+                Quản lý bản ghi bệnh án, thêm, sửa, xóa thông tin bệnh án.
+            </p>
+            <p><a class="btn btn-default" href="~/Patients/">Xem bệnh án &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Bác sĩ</h2>
+            <p>
+                Quản lý danh sách bác sĩ, thêm, sửa, xóa thông tin bác sĩ.
+            </p>
+            <p><a class="btn btn-default" href="~/Doctors/">Xem bệnh án &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Lịch sử luyện tập</h2>
+            <p>
+                Quản lý bản ghi lịch sử luyện tập, thêm, sửa, xóa lưu vết lịch sử luyện tập.
+            </p>
+            <p><a class="btn btn-default" href="~/Traces/">Xem bệnh án &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Tài khoản</h2>
+            <p>
+                Quản lý danh sách, thêm, sửa, xóa thông tin tài khoản.
+            </p>
+            <p><a class="btn btn-default" href="~/Accounts/">Xem bệnh án &raquo;</a></p>
+        </div>
+    }
+</div>

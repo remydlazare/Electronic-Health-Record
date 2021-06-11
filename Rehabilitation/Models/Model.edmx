@@ -1,0 +1,434 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="RehabilitationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="Username" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Role" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="Created" Type="datetime" Nullable="false" />
+          <Property Name="LastModified" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Doctor">
+          <Key>
+            <PropertyRef Name="DoctorId" />
+          </Key>
+          <Property Name="DoctorId" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="DoctorName" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="Birth" Type="date" Nullable="false" />
+          <Property Name="Phone" Type="char" MaxLength="10" />
+          <Property Name="Email" Type="nchar" MaxLength="320" />
+        </EntityType>
+        <EntityType Name="Patient">
+          <Key>
+            <PropertyRef Name="PatientId" />
+          </Key>
+          <Property Name="PatientId" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="32" Nullable="false" />
+          <Property Name="Birth" Type="date" Nullable="false" />
+          <Property Name="Sex" Type="bit" Nullable="false" />
+          <Property Name="Job" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Ethnicity" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Adress" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Workplace" Type="nvarchar" MaxLength="100" />
+          <Property Name="HospitalizedDate" Type="date" Nullable="false" />
+          <Property Name="Status" Type="nvarchar" MaxLength="13" Nullable="false" />
+          <Property Name="ReleasedOrDeath" Type="date" />
+          <Property Name="Photo" Type="varchar" MaxLength="12" />
+          <Property Name="DoctorId" Type="varchar" MaxLength="12" />
+          <Property Name="Eating" Type="int" />
+          <Property Name="Grooming" Type="int" />
+          <Property Name="Bathing" Type="int" />
+          <Property Name="DressingUpperBody" Type="int" />
+          <Property Name="DressingLowerBody" Type="int" />
+          <Property Name="Toileting" Type="int" />
+          <Property Name="BladderManagement" Type="int" />
+          <Property Name="BowelManagement" Type="int" />
+          <Property Name="TransferBedChairWheelchair" Type="int" />
+          <Property Name="TransferToilet" Type="int" />
+          <Property Name="TransferTubShower" Type="int" />
+          <Property Name="WalkOrWheelchair" Type="int" />
+          <Property Name="Stairs" Type="int" />
+          <Property Name="Compreshension" Type="int" />
+          <Property Name="Expression" Type="int" />
+          <Property Name="SocialInteraction" Type="int" />
+          <Property Name="ProblemSolving" Type="int" />
+          <Property Name="Memory" Type="int" />
+          <Property Name="Created" Type="datetime" Nullable="false" />
+          <Property Name="LastModified" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Trace">
+          <Key>
+            <PropertyRef Name="TraceId" />
+          </Key>
+          <Property Name="TraceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PatientId" Type="varchar" MaxLength="12" Nullable="false" />
+          <Property Name="Exercise" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Time" Type="datetime" Nullable="false" />
+          <Property Name="Eating_B" Type="int" />
+          <Property Name="Eating_A" Type="int" Nullable="false" />
+          <Property Name="Grooming_B" Type="int" />
+          <Property Name="Grooming_A" Type="int" Nullable="false" />
+          <Property Name="Bathing_B" Type="int" />
+          <Property Name="Bathing_A" Type="int" Nullable="false" />
+          <Property Name="DressingUpperBody_B" Type="int" />
+          <Property Name="DressingUpperBody_A" Type="int" Nullable="false" />
+          <Property Name="DressingLowerBody_B" Type="int" />
+          <Property Name="DressingLowerBody_A" Type="int" Nullable="false" />
+          <Property Name="Toileting_B" Type="int" />
+          <Property Name="Toileting_A" Type="int" Nullable="false" />
+          <Property Name="BladderManagement_B" Type="int" />
+          <Property Name="BladderManagement_A" Type="int" Nullable="false" />
+          <Property Name="BowelManagement_B" Type="int" />
+          <Property Name="BowelManagement_A" Type="int" Nullable="false" />
+          <Property Name="TransferBedChairWheelchair_B" Type="int" />
+          <Property Name="TransferBedChairWheelchair_A" Type="int" Nullable="false" />
+          <Property Name="TransferToilet_B" Type="int" />
+          <Property Name="TransferToilet_A" Type="int" Nullable="false" />
+          <Property Name="TransferTubShower_B" Type="int" />
+          <Property Name="TransferTubShower_A" Type="int" Nullable="false" />
+          <Property Name="WalkOrWheelchair_B" Type="int" />
+          <Property Name="WalkOrWeelchair_A" Type="int" Nullable="false" />
+          <Property Name="Stairs_B" Type="int" />
+          <Property Name="Stairs_A" Type="int" Nullable="false" />
+          <Property Name="Compreshension_B" Type="int" />
+          <Property Name="Compreshension_A" Type="int" Nullable="false" />
+          <Property Name="Expression_B" Type="int" />
+          <Property Name="Expression_A" Type="int" Nullable="false" />
+          <Property Name="SocialInteraction_B" Type="int" />
+          <Property Name="SocialInteraction_A" Type="int" Nullable="false" />
+          <Property Name="ProblemSolving_B" Type="int" />
+          <Property Name="ProblemSolving_A" Type="int" Nullable="false" />
+          <Property Name="Memory_B" Type="int" />
+          <Property Name="Memory_A" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__PATIENT__DoctorI__5070F446">
+          <End Role="Doctor" Type="Self.Doctor" Multiplicity="0..1" />
+          <End Role="Patient" Type="Self.Patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctor">
+              <PropertyRef Name="DoctorId" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="DoctorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Trace__PatientId__6FE99F9F">
+          <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
+          <End Role="Trace" Type="Self.Trace" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="PatientId" />
+            </Principal>
+            <Dependent Role="Trace">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RehabilitationModelStoreContainer">
+          <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Doctor" EntityType="Self.Doctor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Patient" EntityType="Self.Patient" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Trace" EntityType="Self.Trace" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__PATIENT__DoctorI__5070F446" Association="Self.FK__PATIENT__DoctorI__5070F446">
+            <End Role="Doctor" EntitySet="Doctor" />
+            <End Role="Patient" EntitySet="Patient" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Trace__PatientId__6FE99F9F" Association="Self.FK__Trace__PatientId__6FE99F9F">
+            <End Role="Patient" EntitySet="Patient" />
+            <End Role="Trace" EntitySet="Trace" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RehabilitationModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="Username" />
+          </Key>
+          <Property Name="Username" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Role" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastModified" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Doctor">
+          <Key>
+            <PropertyRef Name="DoctorId" />
+          </Key>
+          <Property Name="DoctorId" Type="String" MaxLength="12" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DoctorName" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Birth" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Phone" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="320" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Patients" Relationship="RehabilitationModel.FK__PATIENT__DoctorI__5070F446" FromRole="Doctor" ToRole="Patient" />
+        </EntityType>
+        <EntityContainer Name="RehabilitationEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Accounts" EntityType="Self.Account" />
+          <EntitySet Name="Doctors" EntityType="Self.Doctor" />
+          <EntitySet Name="Patients" EntityType="RehabilitationModel.Patient" />
+          <AssociationSet Name="FK__PATIENT__DoctorI__5070F446" Association="RehabilitationModel.FK__PATIENT__DoctorI__5070F446">
+            <End Role="Doctor" EntitySet="Doctors" />
+            <End Role="Patient" EntitySet="Patients" />
+          </AssociationSet>
+          <EntitySet Name="Traces" EntityType="RehabilitationModel.Trace" />
+          <AssociationSet Name="FK__Trace__PatientId__6FE99F9F" Association="RehabilitationModel.FK__Trace__PatientId__6FE99F9F">
+            <End Role="Patient" EntitySet="Patients" />
+            <End Role="Trace" EntitySet="Traces" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Patient">
+          <Key>
+            <PropertyRef Name="PatientId" />
+          </Key>
+          <Property Name="PatientId" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="32" FixedLength="false" Unicode="true" />
+          <Property Name="Birth" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Sex" Type="Boolean" Nullable="false" />
+          <Property Name="Job" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ethnicity" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Adress" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Workplace" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="HospitalizedDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="13" FixedLength="false" Unicode="true" />
+          <Property Name="ReleasedOrDeath" Type="DateTime" Precision="0" />
+          <Property Name="Photo" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="DoctorId" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="Eating" Type="Int32" />
+          <Property Name="Grooming" Type="Int32" />
+          <Property Name="Bathing" Type="Int32" />
+          <Property Name="DressingUpperBody" Type="Int32" />
+          <Property Name="DressingLowerBody" Type="Int32" />
+          <Property Name="Toileting" Type="Int32" />
+          <Property Name="BladderManagement" Type="Int32" />
+          <Property Name="BowelManagement" Type="Int32" />
+          <Property Name="TransferBedChairWheelchair" Type="Int32" />
+          <Property Name="TransferToilet" Type="Int32" />
+          <Property Name="TransferTubShower" Type="Int32" />
+          <Property Name="WalkOrWheelchair" Type="Int32" />
+          <Property Name="Stairs" Type="Int32" />
+          <Property Name="Compreshension" Type="Int32" />
+          <Property Name="Expression" Type="Int32" />
+          <Property Name="SocialInteraction" Type="Int32" />
+          <Property Name="ProblemSolving" Type="Int32" />
+          <Property Name="Memory" Type="Int32" />
+          <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="LastModified" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Doctor" Relationship="RehabilitationModel.FK__PATIENT__DoctorI__5070F446" FromRole="Patient" ToRole="Doctor" />
+          <NavigationProperty Name="Traces" Relationship="RehabilitationModel.FK__Trace__PatientId__6FE99F9F" FromRole="Patient" ToRole="Trace" />
+        </EntityType>
+        <Association Name="FK__PATIENT__DoctorI__5070F446">
+          <End Type="RehabilitationModel.Doctor" Role="Doctor" Multiplicity="0..1" />
+          <End Type="RehabilitationModel.Patient" Role="Patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Doctor">
+              <PropertyRef Name="DoctorId" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="DoctorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Trace">
+          <Key>
+            <PropertyRef Name="TraceId" />
+          </Key>
+          <Property Name="TraceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PatientId" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="Exercise" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Time" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Eating_B" Type="Int32" />
+          <Property Name="Eating_A" Type="Int32" Nullable="false" />
+          <Property Name="Grooming_B" Type="Int32" />
+          <Property Name="Grooming_A" Type="Int32" Nullable="false" />
+          <Property Name="Bathing_B" Type="Int32" />
+          <Property Name="Bathing_A" Type="Int32" Nullable="false" />
+          <Property Name="DressingUpperBody_B" Type="Int32" />
+          <Property Name="DressingUpperBody_A" Type="Int32" Nullable="false" />
+          <Property Name="DressingLowerBody_B" Type="Int32" />
+          <Property Name="DressingLowerBody_A" Type="Int32" Nullable="false" />
+          <Property Name="Toileting_B" Type="Int32" />
+          <Property Name="Toileting_A" Type="Int32" Nullable="false" />
+          <Property Name="BladderManagement_B" Type="Int32" />
+          <Property Name="BladderManagement_A" Type="Int32" Nullable="false" />
+          <Property Name="BowelManagement_B" Type="Int32" />
+          <Property Name="BowelManagement_A" Type="Int32" Nullable="false" />
+          <Property Name="TransferBedChairWheelchair_B" Type="Int32" />
+          <Property Name="TransferBedChairWheelchair_A" Type="Int32" Nullable="false" />
+          <Property Name="TransferToilet_B" Type="Int32" />
+          <Property Name="TransferToilet_A" Type="Int32" Nullable="false" />
+          <Property Name="TransferTubShower_B" Type="Int32" />
+          <Property Name="TransferTubShower_A" Type="Int32" Nullable="false" />
+          <Property Name="WalkOrWheelchair_B" Type="Int32" />
+          <Property Name="WalkOrWeelchair_A" Type="Int32" Nullable="false" />
+          <Property Name="Stairs_B" Type="Int32" />
+          <Property Name="Stairs_A" Type="Int32" Nullable="false" />
+          <Property Name="Compreshension_B" Type="Int32" />
+          <Property Name="Compreshension_A" Type="Int32" Nullable="false" />
+          <Property Name="Expression_B" Type="Int32" />
+          <Property Name="Expression_A" Type="Int32" Nullable="false" />
+          <Property Name="SocialInteraction_B" Type="Int32" />
+          <Property Name="SocialInteraction_A" Type="Int32" Nullable="false" />
+          <Property Name="ProblemSolving_B" Type="Int32" />
+          <Property Name="ProblemSolving_A" Type="Int32" Nullable="false" />
+          <Property Name="Memory_B" Type="Int32" />
+          <Property Name="Memory_A" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Patient" Relationship="RehabilitationModel.FK__Trace__PatientId__6FE99F9F" FromRole="Trace" ToRole="Patient" />
+        </EntityType>
+        <Association Name="FK__Trace__PatientId__6FE99F9F">
+          <End Type="RehabilitationModel.Patient" Role="Patient" Multiplicity="1" />
+          <End Type="RehabilitationModel.Trace" Role="Trace" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="PatientId" />
+            </Principal>
+            <Dependent Role="Trace">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="RehabilitationModelStoreContainer" CdmEntityContainer="RehabilitationEntities">
+          <EntitySetMapping Name="Accounts">
+            <EntityTypeMapping TypeName="RehabilitationModel.Account">
+              <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Role" ColumnName="Role" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Doctors">
+            <EntityTypeMapping TypeName="RehabilitationModel.Doctor">
+              <MappingFragment StoreEntitySet="Doctor">
+                <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
+                <ScalarProperty Name="DoctorName" ColumnName="DoctorName" />
+                <ScalarProperty Name="Birth" ColumnName="Birth" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patients">
+            <EntityTypeMapping TypeName="RehabilitationModel.Patient">
+              <MappingFragment StoreEntitySet="Patient">
+                <ScalarProperty Name="LastModified" ColumnName="LastModified" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="Memory" ColumnName="Memory" />
+                <ScalarProperty Name="ProblemSolving" ColumnName="ProblemSolving" />
+                <ScalarProperty Name="SocialInteraction" ColumnName="SocialInteraction" />
+                <ScalarProperty Name="Expression" ColumnName="Expression" />
+                <ScalarProperty Name="Compreshension" ColumnName="Compreshension" />
+                <ScalarProperty Name="Stairs" ColumnName="Stairs" />
+                <ScalarProperty Name="WalkOrWheelchair" ColumnName="WalkOrWheelchair" />
+                <ScalarProperty Name="TransferTubShower" ColumnName="TransferTubShower" />
+                <ScalarProperty Name="TransferToilet" ColumnName="TransferToilet" />
+                <ScalarProperty Name="TransferBedChairWheelchair" ColumnName="TransferBedChairWheelchair" />
+                <ScalarProperty Name="BowelManagement" ColumnName="BowelManagement" />
+                <ScalarProperty Name="BladderManagement" ColumnName="BladderManagement" />
+                <ScalarProperty Name="Toileting" ColumnName="Toileting" />
+                <ScalarProperty Name="DressingLowerBody" ColumnName="DressingLowerBody" />
+                <ScalarProperty Name="DressingUpperBody" ColumnName="DressingUpperBody" />
+                <ScalarProperty Name="Bathing" ColumnName="Bathing" />
+                <ScalarProperty Name="Grooming" ColumnName="Grooming" />
+                <ScalarProperty Name="Eating" ColumnName="Eating" />
+                <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="ReleasedOrDeath" ColumnName="ReleasedOrDeath" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="HospitalizedDate" ColumnName="HospitalizedDate" />
+                <ScalarProperty Name="Workplace" ColumnName="Workplace" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+                <ScalarProperty Name="Ethnicity" ColumnName="Ethnicity" />
+                <ScalarProperty Name="Job" ColumnName="Job" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="Birth" ColumnName="Birth" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Traces">
+            <EntityTypeMapping TypeName="RehabilitationModel.Trace">
+              <MappingFragment StoreEntitySet="Trace">
+                <ScalarProperty Name="Memory_A" ColumnName="Memory_A" />
+                <ScalarProperty Name="Memory_B" ColumnName="Memory_B" />
+                <ScalarProperty Name="ProblemSolving_A" ColumnName="ProblemSolving_A" />
+                <ScalarProperty Name="ProblemSolving_B" ColumnName="ProblemSolving_B" />
+                <ScalarProperty Name="SocialInteraction_A" ColumnName="SocialInteraction_A" />
+                <ScalarProperty Name="SocialInteraction_B" ColumnName="SocialInteraction_B" />
+                <ScalarProperty Name="Expression_A" ColumnName="Expression_A" />
+                <ScalarProperty Name="Expression_B" ColumnName="Expression_B" />
+                <ScalarProperty Name="Compreshension_A" ColumnName="Compreshension_A" />
+                <ScalarProperty Name="Compreshension_B" ColumnName="Compreshension_B" />
+                <ScalarProperty Name="Stairs_A" ColumnName="Stairs_A" />
+                <ScalarProperty Name="Stairs_B" ColumnName="Stairs_B" />
+                <ScalarProperty Name="WalkOrWeelchair_A" ColumnName="WalkOrWeelchair_A" />
+                <ScalarProperty Name="WalkOrWheelchair_B" ColumnName="WalkOrWheelchair_B" />
+                <ScalarProperty Name="TransferTubShower_A" ColumnName="TransferTubShower_A" />
+                <ScalarProperty Name="TransferTubShower_B" ColumnName="TransferTubShower_B" />
+                <ScalarProperty Name="TransferToilet_A" ColumnName="TransferToilet_A" />
+                <ScalarProperty Name="TransferToilet_B" ColumnName="TransferToilet_B" />
+                <ScalarProperty Name="TransferBedChairWheelchair_A" ColumnName="TransferBedChairWheelchair_A" />
+                <ScalarProperty Name="TransferBedChairWheelchair_B" ColumnName="TransferBedChairWheelchair_B" />
+                <ScalarProperty Name="BowelManagement_A" ColumnName="BowelManagement_A" />
+                <ScalarProperty Name="BowelManagement_B" ColumnName="BowelManagement_B" />
+                <ScalarProperty Name="BladderManagement_A" ColumnName="BladderManagement_A" />
+                <ScalarProperty Name="BladderManagement_B" ColumnName="BladderManagement_B" />
+                <ScalarProperty Name="Toileting_A" ColumnName="Toileting_A" />
+                <ScalarProperty Name="Toileting_B" ColumnName="Toileting_B" />
+                <ScalarProperty Name="DressingLowerBody_A" ColumnName="DressingLowerBody_A" />
+                <ScalarProperty Name="DressingLowerBody_B" ColumnName="DressingLowerBody_B" />
+                <ScalarProperty Name="DressingUpperBody_A" ColumnName="DressingUpperBody_A" />
+                <ScalarProperty Name="DressingUpperBody_B" ColumnName="DressingUpperBody_B" />
+                <ScalarProperty Name="Bathing_A" ColumnName="Bathing_A" />
+                <ScalarProperty Name="Bathing_B" ColumnName="Bathing_B" />
+                <ScalarProperty Name="Grooming_A" ColumnName="Grooming_A" />
+                <ScalarProperty Name="Grooming_B" ColumnName="Grooming_B" />
+                <ScalarProperty Name="Eating_A" ColumnName="Eating_A" />
+                <ScalarProperty Name="Eating_B" ColumnName="Eating_B" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Exercise" ColumnName="Exercise" />
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+                <ScalarProperty Name="TraceId" ColumnName="TraceId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

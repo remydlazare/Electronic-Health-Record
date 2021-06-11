@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Rehabilitation.Models.Trace>
+
+@{
+    ViewBag.Title = "Danh sách bản ghi lịch sử luyện tập";
+}
+
+    <h2>Danh sách bản ghi lịch sử luyện tập</h2>
+
+<p>
+    @Html.ActionLink("Thêm mới", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Bệnh nhân
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Time)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Total_B)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Total_A)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Patient.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Total_B)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Total_A)
+        </td>
+        <td>
+            @Html.ActionLink("Chi tiết", "Details", new { id = item.TraceId }) |
+            @Html.ActionLink("Sửa", "Edit", new { id = item.TraceId }) |
+            @Html.ActionLink("Xóa", "Delete", new { id = item.TraceId })
+        </td>
+    </tr>
+}
+
+</table>

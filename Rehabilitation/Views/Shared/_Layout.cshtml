@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/css/form.css" rel="stylesheet" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Trang chủ", "Index", "Home")</li>
+                    @if (Session["role"].ToString() == "Patient")
+                    {
+                        <li>@Html.ActionLink("Bệnh án cá nhân", "Details", "Patients", new { id = Session["username"].ToString() }, null)</li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Bệnh án", "Index", "Patients")</li>
+                    }
+                    <li>@Html.ActionLink("Bác sĩ", "Index", "Doctors")</li>
+                    @if (Session["role"].ToString() == "Admin")
+                    {
+                        <li>@Html.ActionLink("Lịch sử luyện tập", "Index", "Traces")</li>
+                        <li>@Html.ActionLink("Tài khoản", "Index", "Accounts")</li>
+                    }
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>@Html.ActionLink("Đổi mật khẩu", "ChangePassword", "Authorize")</li>
+                    <li>@Html.ActionLink("Đăng xuất", "Sign_Out", "Authorize")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Nguyễn Thành Trung</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <text>
+            <script>
+                    $(document).ready(function () {
+                        alert('@ViewBag.ErrorMessage');
+                     });
+            </script>
+        </text>
+    }
+</body>
+</html>

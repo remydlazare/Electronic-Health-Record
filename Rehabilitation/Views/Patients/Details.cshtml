@@ -1,0 +1,305 @@
+﻿@model Rehabilitation.Models.Patient
+
+@{
+    ViewBag.Title = "Chi tiết";
+}
+<h2>Chi tiết</h2>
+
+<div>
+    <h4>Bệnh án</h4>
+    <hr />
+    <p>
+        @Html.ActionLink("Chỉnh sửa thông tin", "Edit", new { id = Model.PatientId }) |
+        @Html.ActionLink("Thêm kết quả luyện tập", "EditFIM", new { id = Model.PatientId }) |
+        @Html.ActionLink("Xem lịch sử luyện tập", "TrainingHistory", "Traces", new { id = Model.PatientId }, null) |
+        @Html.ActionLink("Trở lại danh sách", "Index")
+    </p>
+    <dl class="dl-horizontal">
+        <fieldset class="scheduler-border">
+            <legend class="scheduler-border">Thông tin bệnh nhân</legend>
+            <dt>
+                @Html.DisplayNameFor(model => model.PatientId)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PatientId)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Birth)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Birth)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Sex)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SexToString)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Job)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Job)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Ethnicity)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Ethnicity)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Adress)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Adress)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Workplace)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Workplace)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.HospitalizedDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HospitalizedDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Status)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Status)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ReleasedOrDeath)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ReleasedOrDeath)
+            </dd>
+
+            <dt>
+                Bác sĩ điều trị
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Doctor.DoctorName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Created)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Created)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.LastModified)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LastModified)
+            </dd>
+
+        </fieldset>
+        <fieldset class="scheduler-border">
+            <legend class="scheduler-border">Mức độ thực hiện chức năng độc lập [@Html.DisplayFor(model => model.Total)/126]</legend>
+            <fieldset class="scheduler-border">
+                <legend class="scheduler-border">Tiểu mục Vận động, di chuyển [@Html.DisplayFor(model => model.MotorDomain)/91]</legend>
+                <fieldset class="scheduler-border">
+                    <legend class="scheduler-border">Tự chăm sóc</legend>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Eating)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Eating)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Grooming)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Grooming)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Bathing)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Bathing)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.DressingUpperBody)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.DressingUpperBody)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.DressingLowerBody)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.DressingLowerBody)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Toileting)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Toileting)
+                    </dd>
+
+                </fieldset>
+
+                <fieldset class="scheduler-border">
+                    <legend class="scheduler-border">Kiểm soát cơ tròn</legend>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.BladderManagement)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.BladderManagement)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.BowelManagement)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.BowelManagement)
+                    </dd>
+                </fieldset>
+
+                <fieldset class="scheduler-border">
+                    <legend class="scheduler-border">Dịch chuyển</legend>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.TransferBedChairWheelchair)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.TransferBedChairWheelchair)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.TransferToilet)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.TransferToilet)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.TransferTubShower)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.TransferTubShower)
+                    </dd>
+                </fieldset>
+
+                <fieldset class="scheduler-border">
+                    <legend class="scheduler-border">Di chuyển, đi lại</legend>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.WalkOrWheelchair)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.WalkOrWheelchair)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Stairs)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Stairs)
+                    </dd>
+                </fieldset>
+            </fieldset>
+
+            <fieldset class="scheduler-border">
+                <legend class="scheduler-border">Tiểu mục Nhận thức [@Html.DisplayFor(model => model.CognitiveDomain)/35]</legend>
+                <fieldset class="scheduler-border">
+                    <legend class="scheduler-border">Giao tiếp</legend>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Compreshension)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Compreshension)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Expression)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Expression)
+                    </dd>
+                </fieldset>
+
+                <fieldset class="scheduler-border">
+                    <legend class="scheduler-border">Nhận thức xã hội</legend>
+                    <dt>
+                        @Html.DisplayNameFor(model => model.SocialInteraction)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.SocialInteraction)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.ProblemSolving)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.ProblemSolving)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Memory)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Memory)
+                    </dd>
+                </fieldset>
+            </fieldset>
+        </fieldset>
+</dl>
+</div>
